@@ -8,10 +8,22 @@ namespace _25
 {
     internal class Publication
     {
+        /// <summary>
+        /// Поле Название
+        /// </summary>
         string title;
+        /// <summary>
+        /// Поле Фамилия автора
+        /// </summary>
         string author_surname;
+        /// <summary>
+        /// Поле Год издания
+        /// </summary>
         int publicationYear;
 
+        /// <summary>
+        /// Свойство Название
+        /// </summary>
         public string Title {
             get { 
                 if(title == null || title == "")
@@ -22,6 +34,9 @@ namespace _25
             } 
             set { title = value; }
         }
+        /// <summary>
+        /// Свойство Фамилия автора
+        /// </summary>
         public string Author_surname { 
             get {
                 if (author_surname == null || author_surname == "")
@@ -32,6 +47,9 @@ namespace _25
             } 
             set { author_surname = value; }
         }
+        /// <summary>
+        /// Свойство Год издания
+        /// </summary>
         public int PublicationYear {
             get {
                 return publicationYear;
@@ -52,8 +70,17 @@ namespace _25
             }
         }
 
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
         public Publication() { }
 
+        /// <summary>
+        /// Конструктор с тремя параметрами
+        /// </summary>
+        /// <param name="title">Название</param>
+        /// <param name="author_surname">Фамилия автора</param>
+        /// <param name="publicationYear">Год издания</param>
         public Publication(string title, string author_surname, int publicationYear)
         {
             Title = title;
@@ -61,16 +88,30 @@ namespace _25
             PublicationYear = publicationYear;
         }
 
+        /// <summary>
+        /// Метод, изменяющий год издания.
+        /// </summary>
+        /// <param name="addedYears">Кол-во лет, на которое увеличится год издания</param>
         public void ChangePublicationYear(int addedYears)
         {
             PublicationYear += addedYears;
         }
 
+        /// <summary>
+        /// Метод, определяющий попадает ли год издания в заданный интервал.
+        /// </summary>
+        /// <param name="from">С какого года начинается интервал</param>
+        /// <param name="to">В каком году заканчивается интервал</param>
+        /// <returns>True если год издания попадает в интервал, иначе false</returns>
         public bool IsPublicationYearInRange(int from, int to)
         {
             return (PublicationYear >= from && PublicationYear <= to);
         }
 
+        /// <summary>
+        /// Метод, возвращающий значения всех полей объекта в виде строки.
+        /// </summary>
+        /// <returns>Все поля объекта в виде строки.</returns>
         public override string ToString()
         {
             return $"Название: {Title}\tФамилия автора: {Author_surname}\tГод издания: {PublicationYear}";
